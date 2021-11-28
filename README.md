@@ -3,6 +3,7 @@ python module to find the scaled matrix of the given one with the gauss algorith
 
 ## TODO
 - [x] integer management
-- [ ] fractions management
+- [x] fractions management
+- [ ] floating point decimals managment
 - [ ] inverted matrix scaling (Gauss-Jordan)
 - [ ] linear systems resolution (math unknowns)
