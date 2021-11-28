@@ -1,3 +1,5 @@
+# https://stackoverflow.com/questions/5124743/algorithm-for-simplifying-decimal-to-fractions
+
 import math
 from fractions import Fraction
 
