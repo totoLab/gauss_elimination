@@ -19,11 +19,10 @@ def flow(matrix, pivot_list, row_switches):
     if gauss.last_possible_pivot(matrix, pivot) or gauss.last_null_rows(matrix, pivot):
         print(pivot_list)
     else:
-        if gauss.exists_null_sub_column(matrix, pivot):
-            return flow(matrix, pivot_list)
-        else:
+        if not gauss.exists_null_sub_column(matrix, pivot):
             gauss.generate_new_row(matrix, pivot)
-            return flow(matrix, pivot_list)
+            
+        return flow(matrix, pivot_list, row_switches)
 
 # example
 matrix = [
