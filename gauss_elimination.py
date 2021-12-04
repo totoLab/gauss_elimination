@@ -1,14 +1,16 @@
 import ulm
 import gauss
 
-def gauss_elimination(matrix):
+def main(matrix):
     if ulm.e_nulla(matrix):
         print("Matrix is null.")
     else:
         pivot_list = []
         row_switches = 0
         gauss.convert_to_fractions(matrix)
-        flow(matrix, pivot_list, row_switches)
+        row_switches, pivot_list = flow(matrix, pivot_list, row_switches)
+
+    return matrix, row_switches, pivot_list
         
 
 def flow(matrix, pivot_list, row_switches):
@@ -18,6 +20,7 @@ def flow(matrix, pivot_list, row_switches):
     pivot_list.append(pivot)
     if gauss.last_possible_pivot(matrix, pivot) or gauss.last_null_rows(matrix, pivot):
         print(pivot_list)
+        return row_switches, pivot_list
     else:
         if not gauss.exists_null_sub_column(matrix, pivot):
             gauss.generate_new_row(matrix, pivot)
@@ -25,9 +28,9 @@ def flow(matrix, pivot_list, row_switches):
         return flow(matrix, pivot_list, row_switches)
 
 # example
-matrix = [
-    [0, 1/2,-1, 0],
-    [0, 1, 1/2, 2],
-    [4, 5, 4, 0.3333]
-]
-gauss_elimination(matrix)
+# matrix = [
+#     [0, 1/2,-1, 0],
+#     [0, 1, 1/2, 2],
+#     [4, 5, 4, 0.3333]
+# ]
+# gauss_elimination(matrix)
