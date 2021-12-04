@@ -6,14 +6,15 @@ def gauss_elimination(matrix):
         print("Matrix is null.")
     else:
         pivot_list = []
+        row_switches = 0
         gauss.convert_to_fractions(matrix)
-        flow(matrix, pivot_list)
+        flow(matrix, pivot_list, row_switches)
         
 
-def flow(matrix, pivot_list):
+def flow(matrix, pivot_list, row_switches):
     ulm.stampa_matrice_incolonnata(matrix, 5)
     print()
-    pivot = gauss.search_pivot(matrix, pivot_list)
+    pivot, row_switches = gauss.search_pivot(matrix, pivot_list, row_switches) # tuples unpacking
     pivot_list.append(pivot)
     if gauss.last_possible_pivot(matrix, pivot) or gauss.last_null_rows(matrix, pivot):
         print(pivot_list)

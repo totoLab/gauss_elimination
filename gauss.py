@@ -8,7 +8,7 @@ def convert_to_fractions(matrix):
             if type(matrix[i][j]) != int:
                 matrix[i][j] = Fraction(string_fraction(matrix[i][j])) # converts imprecise decimals first to strings, then to fractions
 
-def search_pivot(matrix, pivot_list):
+def search_pivot(matrix, pivot_list, row_switches):
     # next pivot's row is always the length of the pivot list + 1, if the list doesn't have length zero
     starting_row = 0 if len(pivot_list) == 0 else len(pivot_list)
     # check from the first if there are no pivots, otherwise check from pivot's coloumn pivot + 1
@@ -20,10 +20,11 @@ def search_pivot(matrix, pivot_list):
             if matrix[i][j] != 0:
                 if i != starting_row:
                     reposition_pivot(matrix, i, starting_row)
+                    row_switches += 1
                     pivot = matrix[starting_row][j]
-                    return (pivot, (starting_row, j))
+                    return (pivot, (starting_row, j)), row_switches
                 else:
-                    return (matrix[i][j], (i, j))
+                    return (matrix[i][j], (i, j)), row_switches
 
 def reposition_pivot(matrix, non_zero_element_row, correct_row):
     ulm.scambia_righe(matrix, non_zero_element_row, correct_row)
