@@ -11,6 +11,6 @@ Module to find the scaled matrix of the given one with the gauss algorithm
 # Determinant calculation
 Module that evaluates determinant based on a scaled matrix (reduced with the Gauss Algorithm)
 
-# TODO
+## TODO
 - [x] calculate determinant of a scaled matrix
 - [ ] calculate determinant with Laplace's method
