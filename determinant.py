@@ -15,8 +15,10 @@ def product_determinant(matrix):
     
     return sign * determinant
 
-def cli_UI():
-    algorithms = ['Laplace Expansion', 'Diagonal Product']
+def laplace_expansion(matrix):
+    pass #TODO
+
+def cli_UI(algorithms):
     for i in range(len(algorithms)):
         print('{})'.format(i + 1), algorithms[i])
     
@@ -28,7 +30,12 @@ def cli_UI():
     return choice
 
 def main(matrix):
-    
+    algorithms = ['Laplace Expansion', 'Diagonal Product']
+    choice = cli_UI(algorithms)
+    if choice == 0:
+        determinant = laplace_expansion(matrix)
+    elif choice == 1:
+        determinant = product_determinant(matrix)
 
     print("Determinant:", determinant)
     return determinant
