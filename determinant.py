@@ -1,24 +1,21 @@
 import gauss_elimination
 
-def calc_determinant(pivot_list):
-    det = 1 # neutral value of the multiplication
-    for pivot in pivot_list:
-        det *= pivot[0]
+def product_determinant(matrix):
+    determinant = 1
 
-    return det
+    minimum_dimension = len(matrix)
+    if len(matrix) > len(matrix[0]):
+        minimum_dimension = len(matrix[0])
+
+    for i in range(minimum_dimension):
+        determinant *= matrix[i][i]
+
+    return determinant
 
 def main(matrix):
     scaled_matrix, row_switches, pivot_list = gauss_elimination.main(matrix)
     sign = (-1)**row_switches
-    determinant = sign * calc_determinant(pivot_list)
+    determinant = sign * product_determinant(matrix)
 
     print("Determinant:", determinant)
     return determinant
-
-# example
-# matrix = [
-#     [0, 3, 6],
-#     [1, 4, 7],
-#     [2, 6, 8]
-# ]
-# main(matrix)
