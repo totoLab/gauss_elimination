@@ -3,14 +3,17 @@ import gauss_elimination
 def product_determinant(matrix):
     determinant = 1
 
+    scaled_matrix, row_switches, _ = gauss_elimination.main(matrix)
+    sign = (-1)**row_switches
+    
     minimum_dimension = len(matrix)
-    if len(matrix) > len(matrix[0]):
-        minimum_dimension = len(matrix[0])
+    if len(scaled_matrix) > len(scaled_matrix[0]):
+        minimum_dimension = len(scaled_matrix[0])
 
     for i in range(minimum_dimension):
-        determinant *= matrix[i][i]
-
-    return determinant
+        determinant *= scaled_matrix[i][i]
+    
+    return sign * determinant
 
 def cli_UI():
     algorithms = ['Laplace Expansion', 'Diagonal Product']
@@ -25,9 +28,7 @@ def cli_UI():
     return choice
 
 def main(matrix):
-    scaled_matrix, row_switches, pivot_list = gauss_elimination.main(matrix)
-    sign = (-1)**row_switches
-    determinant = sign * product_determinant(matrix)
+    
 
     print("Determinant:", determinant)
     return determinant
