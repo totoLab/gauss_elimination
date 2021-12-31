@@ -12,6 +12,18 @@ def product_determinant(matrix):
 
     return determinant
 
+def cli_UI():
+    algorithms = ['Laplace Expansion', 'Diagonal Product']
+    for i in range(len(algorithms)):
+        print('{})'.format(i + 1), algorithms[i])
+    
+    choice = -1
+    while choice not in range(len(algorithms)):
+        choice = int(input("Insert the number of the algorithm you want to use: ")) - 1
+    
+    print('You chose {}'.format(algorithms[choice]))
+    return choice
+
 def main(matrix):
     scaled_matrix, row_switches, pivot_list = gauss_elimination.main(matrix)
     sign = (-1)**row_switches
