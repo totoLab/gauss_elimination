@@ -15,6 +15,11 @@ def product_determinant(matrix):
     
     return sign * determinant
 
+def two_by_two_determinant(matrix):
+    first_term = matrix[0][0] * matrix[1][1]
+    second_term = matrix[0][1] * matrix[1][0]
+    return first_term - second_term
+
 def laplace_expansion(matrix):
     pass #TODO
 
