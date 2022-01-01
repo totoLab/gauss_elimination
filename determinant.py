@@ -21,8 +21,35 @@ def two_by_two_determinant(matrix):
     second_term = matrix[0][1] * matrix[1][0]
     return first_term - second_term
 
+def find_most_zeros(matrix):
+    best_row = (0, 0)
+    for row in matrix:
+        zero_count = 0
+        for element in row:
+            if element == 0:
+                zero_count += 1
+
+        if zero_count > best_row[1]:
+            best_row = row, zero_count
+
+    return best_row[0]
+
+
+def find_sub_matrix(row, i):
+    return -1 #TODO
+
 def laplace_expansion(matrix):
-    pass #TODO
+    if len(matrix) == 1:
+        return matrix[0][0]
+    elif len(matrix) == 2:
+        return two_by_two_determinant(matrix)
+    else:
+        row = find_most_zeros(matrix)
+        for i in range(len(matrix[0])):
+            if matrix[row][i] != 0:
+                sign = (-1)**(row + 1 + i + 1) # double + 1 to match "standard" matrix indexes (same behaviour)
+                sub_matrix = find_sub_matrix(row, i)
+                determinant += sign ** matrix[row][i] * laplace_expansion(sub_matrix)
 
 def cli_UI(algorithms):
     for i in range(len(algorithms)):
@@ -39,7 +66,7 @@ def cli_UI(algorithms):
 def main(matrix):
     if not ulm.e_quadrata(matrix):
         return 'not a squared matrix'
-        
+
     algorithms = ['Laplace Expansion', 'Diagonal Product']
     choice = cli_UI(algorithms)
     if choice == 0:
