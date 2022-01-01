@@ -1,4 +1,5 @@
 import gauss_elimination
+import ulm
 
 def product_determinant(matrix):
     determinant = 1
@@ -36,6 +37,9 @@ def cli_UI(algorithms):
     return choice
 
 def main(matrix):
+    if not ulm.e_quadrata(matrix):
+        return 'not a squared matrix'
+        
     algorithms = ['Laplace Expansion', 'Diagonal Product']
     choice = cli_UI(algorithms)
     if choice == 0:
