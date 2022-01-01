@@ -28,9 +28,10 @@ def cli_UI(algorithms):
         print('{})'.format(i + 1), algorithms[i])
     
     choice = -1
-    while choice not in range(len(algorithms)):
-        choice = int(input("Insert the number of the algorithm you want to use: ")) - 1
+    while not str(choice).isnumeric() or int(choice) - 1 not in range(len(algorithms)):
+        choice = input("Insert the number of the algorithm you want to use: ")
     
+    choice = int(choice) - 1
     print('You chose {}'.format(algorithms[choice]))
     return choice
 
