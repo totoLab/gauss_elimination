@@ -23,16 +23,16 @@ def two_by_two_determinant(matrix):
 
 def find_most_zeros(matrix):
     best_row = (0, 0)
-    for row in matrix:
+    for i in range(len(matrix)):
         zero_count = 0
-        for element in row:
-            if element == 0:
+        for j in range(len(matrix[0])):
+            if matrix[i][j] == 0:
                 zero_count += 1
 
         if zero_count > best_row[1]:
-            best_row = row, zero_count
+            best_row = i, zero_count
 
-    return best_row[0]
+    return best_row[0] # if any, else returns the first row index found
 
 
 def find_sub_matrix(row, i):
