@@ -1,5 +1,6 @@
 # Gauss Elimination
 Module to find the scaled matrix of the given one with the gauss algorithm
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/cd4ba3ccb7704c6ab5e859ac3450083f)](https://www.codacy.com/gh/totoLab/gauss_elimination/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=totoLab/gauss_elimination&amp;utm_campaign=Badge_Grade)
 
 ## TODO 
 - [x] integer management
