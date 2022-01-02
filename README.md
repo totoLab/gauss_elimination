@@ -13,4 +13,4 @@ Module that evaluates determinant based on a scaled matrix (reduced with the Gau
 
 ## TODO
 - [x] calculate determinant of a scaled matrix
-- [ ] calculate determinant with Laplace's method
+- [x] calculate determinant with Laplace's method
