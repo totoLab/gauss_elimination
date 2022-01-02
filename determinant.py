@@ -47,7 +47,7 @@ def laplace_expansion(matrix):
         return two_by_two_determinant(matrix)
     else:
         determinant = 0
-        row = find_most_zeros(matrix)
+        row = 0 # find_most_zeros(matrix)
         for col in range(len(matrix[0])):
             if matrix[row][col] != 0:
                 sign = (-1)**(row + 1 + col + 1) # double + 1 to match "standard" matrix indexes (same behaviour)
