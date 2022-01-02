@@ -67,7 +67,7 @@ def generate_new_row(matrix, pivot):
     pivot_row = pivot_coordinates[0]
     pivot_coloumn = pivot_coordinates[1]
     for i in range(pivot_row + 1, len(matrix)):
-        row_multiplicator = matrix[i][pivot_coloumn] / pivot[0] # multiplicator is the same for every element of the row
+        row_multiplicator = Fraction(matrix[i][pivot_coloumn]) / pivot[0] # multiplicator is the same for every element of the row
         for j in range(pivot_coloumn, len(matrix[0])):
             first_sub_matrix_element = matrix[pivot_row][j]
             matrix[i][j] -= row_multiplicator * first_sub_matrix_element
