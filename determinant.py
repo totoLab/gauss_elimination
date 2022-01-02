@@ -34,7 +34,6 @@ def find_most_zeros(matrix):
 
     return best_row[0] # if any, else returns the first row index found
 
-
 def find_sub_matrix(matrix, row, col):
     sub_matrix = ulm.copia_matrice(matrix)
     ulm.elimina_riga(sub_matrix, row)
@@ -47,12 +46,15 @@ def laplace_expansion(matrix):
     elif len(matrix) == 2:
         return two_by_two_determinant(matrix)
     else:
+        determinant = 0
         row = find_most_zeros(matrix)
         for col in range(len(matrix[0])):
             if matrix[row][col] != 0:
                 sign = (-1)**(row + 1 + col + 1) # double + 1 to match "standard" matrix indexes (same behaviour)
                 sub_matrix = find_sub_matrix(matrix, row, col)
                 determinant += sign ** matrix[row][col] * laplace_expansion(sub_matrix)
+
+        return determinant
 
 def cli_UI(algorithms):
     for i in range(len(algorithms)):
