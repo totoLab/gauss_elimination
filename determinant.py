@@ -52,7 +52,7 @@ def laplace_expansion(matrix):
             if matrix[row][col] != 0:
                 sign = (-1)**(row + 1 + col + 1) # double + 1 to match "standard" matrix indexes (same behaviour)
                 sub_matrix = find_sub_matrix(matrix, row, col)
-                determinant += sign ** matrix[row][col] * laplace_expansion(sub_matrix)
+                determinant += sign * matrix[row][col] * laplace_expansion(sub_matrix)
 
         return determinant
 
