@@ -13,12 +13,11 @@ def main(matrix):
     return matrix, row_switches, pivot_list
         
 def print_and_exit(matrix, row_switches, pivot_list):
-    ulm.stampa_matrice_incolonnata(matrix, 5)
+    #ulm.stampa_matrice_incolonnata(matrix, 10)
     return row_switches, pivot_list
 
 def flow(matrix, pivot_list, row_switches):
-    ulm.stampa_matrice_incolonnata(matrix, 5)
-    print()
+    #ulm.stampa_matrice_incolonnata(matrix, 10)
     pivot, row_switches = gauss.search_pivot(matrix, pivot_list, row_switches) # tuples unpacking
     pivot_list.append(pivot)
     if gauss.last_possible_pivot(matrix, pivot):
