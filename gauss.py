@@ -1,12 +1,12 @@
 import ulm
-from fractions import Fraction
-from to_fraction import calc as string_fraction
+import fractions
+import to_fraction
 
 def convert_to_fractions(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
             if type(matrix[i][j]) != int:
-                matrix[i][j] = Fraction(string_fraction(matrix[i][j])) # converts imprecise decimals first to strings, then to fractions
+                matrix[i][j] = fractions.Fraction(to_fraction.main(matrix[i][j])) # converts imprecise decimals first to strings, then to fractions
 
 def search_pivot(matrix, pivot_list, row_switches):
     # next pivot's row is always the length of the pivot list + 1, if the list doesn't have length zero
@@ -67,7 +67,7 @@ def generate_new_row(matrix, pivot):
     pivot_row = pivot_coordinates[0]
     pivot_coloumn = pivot_coordinates[1]
     for i in range(pivot_row + 1, len(matrix)):
-        row_multiplicator = Fraction(matrix[i][pivot_coloumn]) / pivot[0] # multiplicator is the same for every element of the row
+        row_multiplicator = fractions.Fraction(matrix[i][pivot_coloumn]) / pivot[0] # multiplicator is the same for every element of the row
         for j in range(pivot_coloumn, len(matrix[0])):
             first_sub_matrix_element = matrix[pivot_row][j]
             matrix[i][j] -= row_multiplicator * first_sub_matrix_element

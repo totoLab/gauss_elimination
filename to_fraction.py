@@ -1,9 +1,9 @@
 # https://stackoverflow.com/questions/5124743/algorithm-for-simplifying-decimal-to-fractions
 
 import math
-from fractions import Fraction
+import fractions
 
-def calc(x, error=0.0000001):
+def main(x, error=0.0000001):
     n = int(math.floor(x))
     x -= n
     if x < error:
@@ -33,7 +33,7 @@ def calc(x, error=0.0000001):
             lower_d = middle_d
         # Else middle is our best fraction
         else:
-            frac = Fraction(n * middle_d + middle_n, middle_d)
+            frac = fractions.Fraction(n * middle_d + middle_n, middle_d)
             if (frac.numerator // frac.denominator) == 0:
                 return(f"{frac.numerator % frac.denominator}/{frac.denominator}")
             elif ((frac.numerator % frac.denominator)/frac.denominator) == 0/1:
