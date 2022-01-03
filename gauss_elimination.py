@@ -14,7 +14,7 @@ def main(matrix):
         
 def print_and_exit(matrix, row_switches, pivot_list):
     #ulm.stampa_matrice_incolonnata(matrix, 10)
-    return row_switches, pivot_list
+    return matrix, row_switches, pivot_list
 
 def flow(matrix, pivot_list, row_switches):
     #ulm.stampa_matrice_incolonnata(matrix, 10)
