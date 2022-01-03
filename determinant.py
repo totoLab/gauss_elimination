@@ -32,7 +32,7 @@ def find_most_zeros(matrix):
         if zero_count > best_row[1]:
             best_row = i, zero_count
 
-    return best_row[0] # if any, else returns the first row index found
+    return best_row[0] # if any, otherwise returns the first row index found
 
 def find_sub_matrix(matrix, row, col):
     sub_matrix = []
