@@ -8,7 +8,7 @@ def main(matrix):
         pivot_list = []
         row_switches = 0
         gauss.convert_to_fractions(matrix)
-        row_switches, pivot_list = flow(matrix, pivot_list, row_switches)
+        matrix, row_switches, pivot_list = flow(matrix, pivot_list, row_switches)
 
     return matrix, row_switches, pivot_list
         
