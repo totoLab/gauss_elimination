@@ -64,16 +64,16 @@ def laplace_expansion(matrix):
 
         return determinant
 
-def cli_UI(algorithms, label):
-    for i in range(len(algorithms)):
-        print('{})'.format(i + 1), algorithms[i])
+def cli_UI(options, label):
+    for i in range(len(options)):
+        print('{})'.format(i + 1), options[i])
     
     choice = -1
-    while not str(choice).isnumeric() or int(choice) - 1 not in range(len(algorithms)):
+    while not str(choice).isnumeric() or int(choice) - 1 not in range(len(options)):
         choice = input(label)
     
     choice = int(choice) - 1
-    print('Hai scelto {}'.format(algorithms[choice]))
+    print('Hai scelto {}'.format(options[choice]))
     return choice
 
 def main(matrix):
