@@ -12,25 +12,25 @@ def verify_results():
         diagonal = determinant.product_determinant(matrix)
 
         if laplace == diagonal:
-            results['equal'] += 1
+            results['uguali'] += 1
         elif laplace != diagonal:
-            results['different'] += 1
+            results['diversi'] += 1
         else:
-            print('error')
+            print('errore')
 
     print(results)
 
 def test():
     max_value = 50000
 
-    choices = ["Matrix from user input", "Casual Matrix"]
-    choice = determinant.cli_UI(choices, "Number of type of matrix you want to use: ")
+    choices = ["Matrice inserita dall'utente", "Matrice casuale"]
+    choice = determinant.cli_UI(choices, "Numero corrispondente al tipo di matrice: ")
     if choice == 0:
         matrix = ulm.leggi_matrice_int()
     elif choice == 1:
         matrix = ulm.costruisci_matrice_valori_casuali(random.randint(1, 15), random.randint(1, 15), max_value)
 
     ulm.stampa_matrice_incolonnata(matrix, len(str(max_value)))
-    print("Determinant:", determinant.main(matrix))
+    print("Determinante:", determinant.main(matrix))
 
 test()

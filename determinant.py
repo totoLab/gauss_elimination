@@ -73,15 +73,15 @@ def cli_UI(algorithms, label):
         choice = input(label)
     
     choice = int(choice) - 1
-    print('You chose {}'.format(algorithms[choice]))
+    print('Hai scelto {}'.format(algorithms[choice]))
     return choice
 
 def main(matrix):
     if not ulm.e_quadrata(matrix):
-        return 'not a squared matrix'
+        return 'non è una matrice quadrata'
 
-    algorithms = ['Laplace Expansion', 'Diagonal Product']
-    choice = cli_UI(algorithms, 'Insert the number of the algorithm you want to use: ')
+    algorithms = ['Sviluppo di Laplace', 'Prodotto della diagonale']
+    choice = cli_UI(algorithms, "Inserisci il numero corrispondente all'algoritmo da utilizzare: ")
     if choice == 0:
         determinant = laplace_expansion(matrix)
     elif choice == 1:
