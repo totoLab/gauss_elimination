@@ -64,13 +64,13 @@ def laplace_expansion(matrix):
 
         return determinant
 
-def cli_UI(algorithms):
+def cli_UI(algorithms, label):
     for i in range(len(algorithms)):
         print('{})'.format(i + 1), algorithms[i])
     
     choice = -1
     while not str(choice).isnumeric() or int(choice) - 1 not in range(len(algorithms)):
-        choice = input("Insert the number of the algorithm you want to use: ")
+        choice = input(label)
     
     choice = int(choice) - 1
     print('You chose {}'.format(algorithms[choice]))
@@ -81,11 +81,10 @@ def main(matrix):
         return 'not a squared matrix'
 
     algorithms = ['Laplace Expansion', 'Diagonal Product']
-    choice = cli_UI(algorithms)
+    choice = cli_UI(algorithms, 'Insert the number of the algorithm you want to use: ')
     if choice == 0:
         determinant = laplace_expansion(matrix)
     elif choice == 1:
         determinant = product_determinant(matrix)
 
-    print("Determinant:", determinant)
     return determinant
