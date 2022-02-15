@@ -28,7 +28,13 @@ def test():
     if choice == 0:
         matrix = ulm.leggi_matrice_int()
     elif choice == 1:
-        matrix = ulm.costruisci_matrice_valori_casuali(random.randint(1, 15), random.randint(1, 15), max_value)
+        choices = ["Squared", "No boundaries"]
+        choice = determinant.cli_UI(choices, "Number of type of matrix you want to use: ")
+        if choice == 0:
+            ordine = random.randint(1, 5)
+            matrix = ulm.costruisci_matrice_valori_casuali(ordine, ordine, max_value)
+        elif choice == 1:
+            matrix = ulm.costruisci_matrice_valori_casuali(random.randint(1, 15), random.randint(1, 15), max_value)
 
     ulm.stampa_matrice_incolonnata(matrix, len(str(max_value)))
     print("Determinant:", determinant.main(matrix))
