@@ -5,7 +5,7 @@ import to_fraction
 def convert_to_fractions(matrix):
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
-            if not (isinstance(matrix[i][j], Fraction) or isinstance(matrix[i][j], int)):
+            if not (isinstance(matrix[i][j], fractions.Fraction) or isinstance(matrix[i][j], int)):
                 matrix[i][j] = Fraction(string_fraction(matrix[i][j])) # converts imprecise decimals first to strings, then to fractions
 
 def search_pivot(matrix, pivot_list, row_switches):
