@@ -2,6 +2,7 @@ import gauss_elimination
 import ulm
 import determinant
 import random
+import inverted
 
 def verify_results():
     results = {'equal': 0, 'different': 0}
@@ -38,5 +39,12 @@ def test():
 
     ulm.stampa_matrice_incolonnata(matrix, len(str(max_value)))
     print("Determinant:", determinant.main(matrix))
+    
+    inverted_matrix = inverted.main(matrix)
+    if isinstance(inverted_matrix, list):
+        print("Inverted Matrix: \n")
+        ulm.stampa_matrice_incolonnata(inverted_matrix, len(str(max_value)))
+    else:
+        print("Error:", inverted_matrix)
 
 test()
