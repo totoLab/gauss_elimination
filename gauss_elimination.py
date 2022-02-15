@@ -3,7 +3,7 @@ import gauss
 
 def main(matrix):
     if ulm.e_nulla(matrix):
-        print("Matrix is null.")
+        print("La matrice è nulla.")
     else:
         pivot_list = []
         row_switches = 0
