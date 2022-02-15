@@ -2,6 +2,7 @@ import random
 import ulm
 import gauss_elimination
 import determinant
+import inverse
 
 def matrix_input(max_value):
     choices = ["Matrice inserita dall'utente", "Matrice casuale"]
@@ -35,18 +36,18 @@ def inverse_matrix_test(matrix, max_length):
     print("Matrice da invertire")
     ulm.stampa_matrice_incolonnata(matrix, max_length)
 
-    inverted_matrix = inverted.main(matrix)
-    if isinstance(inverted_matrix, list):
+    inverse_matrix = inverse.main(matrix)
+    if isinstance(inverse_matrix, list):
         print("Matrice inversa")
-        ulm.stampa_matrice_incolonnata(inverted_matrix, len(str(max_value)))
+        ulm.stampa_matrice_incolonnata(inverse_matrix, max_length)
     else:
-        print("Errore:", inverted_matrix)
+        print("Errore:", inverse_matrix)
 
 def general_test():
     element_max_value = 500
     max_element_length = len(str(element_max_value))
 
-    operations = ["Determinante", "Riduzione di Gauss"]
+    operations = ["Determinante", "Riduzione di Gauss", "Matrice Inversa"]
     label = "Inserire il numero corrispondente all'operazione da svolgere: "
     choice = determinant.cli_UI(operations, label)
 
@@ -57,5 +58,5 @@ def general_test():
     elif choice == 1:
         gauss_elimination_test(matrix, max_element_length)
     elif choice == 2:
-        inverse_matrix_test(matrix, max_length)
+        inverse_matrix_test(matrix, max_element_length)
 general_test()
