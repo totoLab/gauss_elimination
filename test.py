@@ -3,6 +3,36 @@ import ulm
 import gauss_elimination
 import determinant
 import inverse
+import json
+import fractions
+
+class FractionEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, fractions.Fraction):
+            fraction = f"{o.numerator}/{o.denominator}"
+            return (str(fraction) for fraction in [fraction])
+
+        return super(FractionEncoder, self).default(o)
+
+def matrix_everything(matrix):
+    info = {
+        "Matrix": [],
+        "Determinant": 0,
+        "Gauss Reduction": [],
+        "Inverse": []
+    }
+    det = determinant.product_determinant(matrix)
+    gauss_reduction = gauss_elimination.main(matrix)
+    inverse_matrix = inverse.main(matrix)
+    info.update({
+        "Matrix": matrix,
+        "Determinant": det,
+        "Gauss Reduction": gauss_reduction,
+        "Inverse": inverse_matrix
+    })
+
+    return info
+
 
 def matrix_input(max_value):
     choices = ["Matrice inserita dall'utente", "Matrice casuale"]
@@ -43,8 +73,7 @@ def inverse_matrix_test(matrix, max_length):
     else:
         print("Errore:", inverse_matrix)
 
-def general_test():
-    element_max_value = 500
+def general_test(element_max_value):
     max_element_length = len(str(element_max_value))
 
     operations = ["Determinante", "Riduzione di Gauss", "Matrice Inversa"]
@@ -59,4 +88,14 @@ def general_test():
         gauss_elimination_test(matrix, max_element_length)
     elif choice == 2:
         inverse_matrix_test(matrix, max_element_length)
-general_test()
+
+def main():
+    max_value = 5000
+    matrix = matrix_input(max_value)
+    # general_test(max_value)
+    info = matrix_everything(matrix)
+    #with open("results.json", "w") as f:
+    #    json.dump(info, f, cls=FractionEncoder)
+    print(info) # write to file with shell (python3 test.py > output.txt)
+
+main()
