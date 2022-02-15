@@ -4,7 +4,7 @@ import gauss
 import determinant
 import fractions
 
-def affianca_matrici(m1, m2):
+def aside_matrix(m1, m2):
     matrix = []
     for row1, row2 in zip(m1, m2):
         new_row = row1 + row2
@@ -28,8 +28,8 @@ def half_matrix_rows(matrix):
 def setup_inversion(matrix):
     ordine = len(matrix)
     identita = ulm.costruisci_matrice_identita(ordine)
-    matrice_piu_id = affianca_matrici(matrix, identita)
-    return matrice_piu_id
+    matrix_plus_identity = aside_matrix(matrix, identity)
+    return matrix_plus_identity
 
 def mirror_matrix(matrix):
     mirrored = []
@@ -44,7 +44,7 @@ def mirror_and_glue(matrix):
     for matrix in halfed_matrices:
         matrices.append(mirror_matrix(matrix))
 
-    matrix = affianca_matrici(matrices[0], matrices[1])
+    matrix = aside_matrix(matrices[0], matrices[1])
     return matrix, matrices[0]
 
 def fix_diagonal(matrix, diagonal_original):
