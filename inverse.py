@@ -75,4 +75,4 @@ def main(matrix):
         identity, inverse = half_matrix_rows(matrix) # splitting to return only the inverted
         return inverse
     else:
-        return "matrix is not invertible"
+        return "La matrice non è invertibile."
