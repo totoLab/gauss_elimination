@@ -27,7 +27,7 @@ def half_matrix_rows(matrix):
 
 def setup_inversion(matrix):
     ordine = len(matrix)
-    identita = ulm.costruisci_matrice_identita(ordine)
+    identity = ulm.costruisci_matrice_identita(ordine)
     matrix_plus_identity = aside_matrix(matrix, identity)
     return matrix_plus_identity
 
@@ -72,7 +72,7 @@ def main(matrix):
         matrix, scaled_original = mirror_and_glue(scaled) # re-mirroring to have the correct reduced matrix
 
         matrix = fix_diagonal(matrix, scaled_original) # fix diagonal with row multiplication
-        identity, inverted = half_matrix_rows(matrix) # splitting to return only the inverted
-        return inverted
+        identity, inverse = half_matrix_rows(matrix) # splitting to return only the inverted
+        return inverse
     else:
         return "matrix is not invertible"
